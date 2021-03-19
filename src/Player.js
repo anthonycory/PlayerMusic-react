@@ -5,7 +5,7 @@ import { AiOutlinePauseCircle, AiFillStepBackward } from 'react-icons/ai';
 import { BiSkipNext } from 'react-icons/bi';
 import Playlist from "./Playlist"
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Player({ song}) {
     const [PlaySong, setPlaySong] = useState(false)
@@ -19,14 +19,14 @@ function Player({ song}) {
       e.preventDefault();
           setPlaySong(true)
           document.getElementsByClassName('audio')[0].play()
-          interval()
+          Timer()
     }
 
     const Pause = e => {
         e.preventDefault();
         setPlaySong(false)
         document.getElementsByClassName('audio')[0].pause()
-      }
+    }
 
     const nextSong = e => {
         e.preventDefault();
@@ -37,7 +37,7 @@ function Player({ song}) {
         setTimeout(() => {
             Play(e) 
         }, 100);
-      }
+    }
 
     const backSong = e => {
         e.preventDefault();
@@ -48,9 +48,9 @@ function Player({ song}) {
         setTimeout(() => {
             Play(e) 
         }, 100);
-      }
+    }
   
-    const interval = () => {     
+    const Timer = () => {     
         if(duration < 100) {
             var value = setInterval(() => {
             const value = document.getElementsByClassName('audio')[0].duration
@@ -61,7 +61,7 @@ function Player({ song}) {
     }else {
         clearInterval(value)
     }
-  }
+    }
 
     const ChangeSong = (e, index) => {
         e.preventDefault();

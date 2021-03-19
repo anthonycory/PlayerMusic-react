@@ -4,7 +4,7 @@ import { FcSearch } from 'react-icons/fc';
 import { WaveSpinner } from "react-spinners-kit";
 
 export default function Playlist({songs, songIndex, ChangeSong}) {
-    const [search, setSearch] = useState("g")
+    const [search, setSearch] = useState("")
 
 
     const filterData = songs.filter((item) => {
@@ -22,7 +22,7 @@ export default function Playlist({songs, songIndex, ChangeSong}) {
                     <FcSearch size={20} />
                     <input className="search" type="text" placeholder="Recherche" onChange={(e) => setSearch(e.target.value)} />
                 </div>
-                {search.length > 1 ? filterData.map((item, index) => {
+                {search.length > 0 ? filterData.map((item, index) => {
                     if(songs[songIndex].title === item.title)  {
                     return (
                         <div className="container-song-active" key={index}>                
@@ -54,24 +54,6 @@ export default function Playlist({songs, songIndex, ChangeSong}) {
                                 }
                         })
                     )}
-                {/* {songs.map((item, index) => {
-
-                    if(songIndex === index)  {
-                    return (
-                        <div className="container-song-active" key={index}>                
-                        <WaveSpinner size={10} />
-                        <div className="song-active" >{item.title}</div> 
-                        </div>
-                    )
-                    } else {
-                        return (
-                        <button onClick={(e) => ChangeSong(e, index)} key={index} className="container-song">
-                            <BsMusicNoteBeamed size={20}/>
-                        <div className="song" key={index}>{item.title}</div> 
-                        </button>
-                        )
-                    }
-                })} */}
             </div>
         </React.Fragment>
     )
