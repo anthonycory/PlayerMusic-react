@@ -100,3 +100,11 @@ img {
 }
 
 button:focus {outline:0;}
+
+.info {
+  margin-top: 10px;
+  width: 90%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+}

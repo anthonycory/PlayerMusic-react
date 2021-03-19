@@ -1,11 +1,15 @@
 import React from 'react'
-import { BsMusicNoteBeamed } from 'react-icons/bs';
+import { BsMusicNoteBeamed, BsThreeDots } from 'react-icons/bs';
 import { WaveSpinner } from "react-spinners-kit";
 
 export default function Playlist({songs, songIndex, ChangeSong}) {
+    
     return (
         <React.Fragment>
             <div className="container-playlist">
+                <button className="info">
+                    <BsThreeDots  size={20} />
+                </button>
                 {songs.map((item, index) => {
 
                     if(songIndex === index)  {

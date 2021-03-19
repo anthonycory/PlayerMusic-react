@@ -4,6 +4,8 @@ import { ImPlay2 } from 'react-icons/im';
 import { AiOutlinePauseCircle, AiFillStepBackward } from 'react-icons/ai';
 import { BiSkipNext } from 'react-icons/bi';
 import Playlist from "./Playlist"
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function Player({ song}) {
     const [PlaySong, setPlaySong] = useState(false)
@@ -11,7 +13,6 @@ function Player({ song}) {
     const [songIndex, setSongIndex] = useState(0)
 
     useEffect(() => {
-        console.log(duration)
     }, [duration])
   
     const Play = e => {
@@ -70,10 +71,20 @@ function Player({ song}) {
         setTimeout(() => {
             Play(e)
         }, 200);
+        toast.dark('🎵 ' + song[index].title, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
     }
           
     return (
         <React.Fragment>
+            <ToastContainer />
             <div className="player">
                 <div className="container-player">
                     <div className="container-control">
