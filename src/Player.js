@@ -52,12 +52,11 @@ function Player({ song}) {
   
     const interval = () => {     
         if(duration < 100) {
-      var value = setInterval(() => {
-          const value = document.getElementsByClassName('audio')[0].duration
-          const time = document.getElementsByClassName('audio')[0].currentTime
-          const result = (time / value) * 100
-          setDuration(result)
-        //   console.log(duration)
+            var value = setInterval(() => {
+            const value = document.getElementsByClassName('audio')[0].duration
+            const time = document.getElementsByClassName('audio')[0].currentTime
+            const result = (time / value) * 100
+            setDuration(result)
         }, 100);
     }else {
         clearInterval(value)
